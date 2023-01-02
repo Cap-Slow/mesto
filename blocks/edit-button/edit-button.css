@@ -1,0 +1,10 @@
+.edit-button {
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    display: inline;
+    background-color: #000;
+    border: 1px solid #FFF;
+    align-self: center;
+    margin-top: 7px
+}
