@@ -1,0 +1,16 @@
+.popup__input {
+    width: inherit;
+    color: #000;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    outline: none;
+    border:none;
+    padding: 0;
+    padding-bottom: 9px;
+}
+
+
+.popup__input::placeholder {
+    color: #000;
+}

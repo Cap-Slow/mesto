@@ -5,4 +5,19 @@
     border: 2px solid #FFFFFF;
     border-radius: 2px;
     align-self: center;
+    background-image: url(../../images/plus-sign.svg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
+.add-button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+    }
+
+@media screen and (max-width: 767px) {
+    .add-button {
+        width: 100%;
+    }
+  }

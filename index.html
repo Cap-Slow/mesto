@@ -1,82 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <title>Проект Mesto</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Проект Mesto</title>
 </head>
 <body class="page">
-    <header class="header">
-        <img src="./images/logo.svg" alt="Логотип проекта Mesto" class="header__logo">
-    </header>
-    <main class="content">
-        <section class="profile">
-            <div class="profile__card">
-                <img src="./images/cousteau.jpg" alt="Портрет Жака-Ив Кусто" class="profile__avatar">
-                <div class="profile__info">
-                    <div class="profile__name-container">
-                        <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <button class="edit-button">
-                            <img src="./images/edit.svg" alt="" class="edit-button__image">
-                        </button>
-                    </div>
-                    <h2 class="profile__subtitle">Исследователь океана</h2>
-                </div>
-            </div>
-            <button class="add-button">
-                <img src="./images/plus-sign.svg" alt="" class="add-button__image">
-            </button>
-        </section>
-        <ul class="elements">
-            <li class="elements__item">
-                <img src="./images/karachaevsk.jpg" alt="Тебердинский храм в Карачаево-Черкессии"
-                    class="elements__image">
-                <div class="elements__card-profile">
-                    <h3 class="elements__title">Карачаевск</h3>
-                    <img src="./images/like-icon.svg" alt="Лайк в виде сердца" class="elements__like-icon">
-                </div>
-            </li>
-            <li class="elements__item">
-                <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
-                <div class="elements__card-profile">
-                    <h3 class="elements__title">Гора Эльбрус</h3>
-                    <img src="./images/like-icon.svg" alt="Лайк в виде сердца" class="elements__like-icon">
-                </div>
-            </li>
-            <li class="elements__item">
-                <img src="./images/kabardino-balkaria.jpg" alt="Мост через реку в горах" class="elements__image">
-                <div class="elements__card-profile">
-                    <h3 class="elements__title">Кабардино-Балкария</h3>
-                    <img src="./images/like-icon.svg" alt="Лайк в виде сердца" class="elements__like-icon">
-                </div>
-            </li>
-            <li class="elements__item">
-                <img src="./images/batumi.jpg" alt="Собака на пляже в Батуми" class="elements__image">
-                <div class="elements__card-profile">
-                    <h3 class="elements__title">Батуми</h3>
-                    <img src="./images/like-icon.svg" alt="Лайк в виде сердца" class="elements__like-icon">
-                </div>
-            </li>
-            <li class="elements__item">
-                <img src="./images/ushguli.jpg" alt="Старое поселение в горах" class="elements__image">
-                <div class="elements__card-profile">
-                    <h3 class="elements__title">Ушгули</h3>
-                    <img src="./images/like-icon.svg" alt=Лайк в виде сердца" class="elements__like-icon">
-                </div>
-            </li>
-            <li class="elements__item">
-                <img src="./images/mtskheta.jpg" alt="Древний монастырь на горе" class="elements__image">
-                <div class="elements__card-profile">
-                    <h3 class="elements__title">Мцхета</h3>
-                    <img src="./images/like-icon.svg" alt="Лайк в виде сердца" class="elements__like-icon">
-                </div>
-            </li>
-        </ul>
-        <footer class="footer">
-            <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
-        </footer>
-    </main>
+  <section class="popup popup_opened">
+    <div class="popup__container">
+      <p class="popup__title">Редактировать профиль</p>
+      <div class="popup__input-container">
+        <input type="text" placeholder="Жак-Ив Кусто" class="popup__input">
+      </div>
+      <div class="popup__input-container">
+        <input type="text" placeholder="Исследователь океана" class="popup__input">
+      </div>
+      <button class="save-button">Сохранить</button>
+      <button class="popup__close-button"></button>
+    </div>
+  </section>
+  <header class="header">
+    <img src="./images/logo.svg" alt="Логотип проекта Mesto" class="header__logo">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__card">
+        <img src="./images/cousteau.jpg" alt="Портрет Жака-Ив Кусто" class="profile__avatar">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто<button class="edit-button"></button></h1>
+          <!-- <button class="edit-button"></button> -->
+          <h2 class="profile__subtitle">Исследователь океана</h2>
+        </div>
+      </div>
+      <button class="add-button"></button>
+    </section>
+    <ul class="elements">
+      <li class="elements__item">
+        <img src="./images/karachaevsk.jpg" alt="Тебердинский храм в Карачаево-Черкессии" class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title">Карачаевск</h3>
+          <button class="like-button"></button>
+        </div>
+      </li>
+      <li class="elements__item">
+        <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title">Гора Эльбрус</h3>
+          <button class="like-button"></button>
+        </div>
+      </li>
+      <li class="elements__item">
+        <img src="./images/kabardino-balkaria.jpg" alt="Мост через реку в горах" class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title">Кабардино-Балкария</h3>
+          <button class="like-button"></button>
+        </div>
+      </li>
+      <li class="elements__item">
+        <img src="./images/dombai.png" alt="Заснеженная гора на фоне леса" class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title">Домбай</h3>
+          <button class="like-button"></button>
+        </div>
+      </li>
+      <li class="elements__item">
+        <img src="./images/shadzhatmaz.jpg" alt="Горное плато с заснеженной вершине на горизонте"
+          class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title">Плато Шаджатмаз</h3>
+          <button class="like-button"></button>
+        </div>
+      </li>
+      <li class="elements__item">
+        <img src="./images/adygea.jpg" alt="Маленький деревянный дом на горном склоне" class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title">Адыгея</h3>
+          <button class="like-button"></button>
+        </div>
+      </li>
+    </ul>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+    </footer>
+  </main>
 </body>
 </html>
