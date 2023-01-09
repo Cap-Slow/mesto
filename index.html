@@ -8,19 +8,19 @@
   <title>Проект Mesto</title>
 </head>
 <body class="page">
-  <section class="popup">
-    <div class="popup__container">
-      <p class="popup__title">Редактировать профиль</p>
-      <div class="popup__input-container">
-        <input type="text" placeholder="Жак-Ив Кусто" class="popup__input">
-      </div>
-      <div class="popup__input-container">
-        <input type="text" placeholder="Исследователь океана" class="popup__input">
-      </div>
+  <div class="popup">
+    <form class="popup__container">
+      <p class="popup__form-title">Редактировать профиль</p>
+      <fieldset class="popup__input-container">
+        <input type="text" placeholder="Введите имя" class="popup__input input__name">
+      </fieldset>
+      <fieldset class="popup__input-container">
+        <input type="text" placeholder="Введите профессию" class="popup__input input__job">
+      </fieldset>
       <button class="save-button">Сохранить</button>
       <button class="popup__close-button"></button>
-    </div>
-  </section>
+    </form>
+  </div>
   <header class="header">
     <img src="./images/logo.svg" alt="Логотип проекта Mesto" class="header__logo">
   </header>
@@ -30,10 +30,10 @@
         <img src="./images/cousteau.jpg" alt="Портрет Жака-Ив Кусто" class="profile__avatar">
         <div class="profile__info">
           <div class="profile__name-section">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="edit-button"></button>
           </div>
-          <h2 class="profile__subtitle">Исследователь океана</h2>
+          <h2 class="profile__job">Исследователь океана</h2>
         </div>
       </div>
       <button class="add-button"></button>
