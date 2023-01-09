@@ -8,7 +8,7 @@
   <title>Проект Mesto</title>
 </head>
 <body class="page">
-  <section class="popup popup_opened">
+  <section class="popup">
     <div class="popup__container">
       <p class="popup__title">Редактировать профиль</p>
       <div class="popup__input-container">
@@ -29,8 +29,10 @@
       <div class="profile__card">
         <img src="./images/cousteau.jpg" alt="Портрет Жака-Ив Кусто" class="profile__avatar">
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто<button class="edit-button"></button></h1>
-          <!-- <button class="edit-button"></button> -->
+          <div class="profile__name-section">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="edit-button"></button>
+          </div>
           <h2 class="profile__subtitle">Исследователь океана</h2>
         </div>
       </div>
@@ -85,5 +87,6 @@
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
