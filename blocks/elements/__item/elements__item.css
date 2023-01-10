@@ -1,5 +1,7 @@
 .elements__item {
     height: 361px;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     list-style: none;
@@ -7,11 +9,11 @@
 
 @media screen and (max-width: 1023px) {
     .elements__item {
-        height: 421px;
+        height: 423px;
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 767px) {
     .elements__item {
         height: 361px;
     }
