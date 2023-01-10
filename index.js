@@ -4,8 +4,8 @@ let closeButton = container.querySelector('.popup__close-button');
 let popupForm = container.querySelector('.popup');
 let profileName = container.querySelector('.profile__name');
 let profileJob = container.querySelector('.profile__job');
-let nameInput = popupForm.querySelector('.input__name');
-let jobInput = popupForm.querySelector('.input__job');
+let nameInput = popupForm.querySelector('.popup__input-name');
+let jobInput = popupForm.querySelector('.popup__input-job');
 
 function openPopup() {
     popupForm.classList.add('popup_opened')
