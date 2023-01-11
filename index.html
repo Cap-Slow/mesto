@@ -8,19 +8,6 @@
   <title>Проект Mesto</title>
 </head>
 <body class="page">
-  <div class="popup">
-    <form class="popup__container">
-      <p class="popup__form-title">Редактировать профиль</p>
-      <fieldset class="popup__input-container">
-        <input type="text" required placeholder="Введите имя" class="popup__input popup__input-name">
-      </fieldset>
-      <fieldset class="popup__input-container">
-        <input type="text" required placeholder="Введите профессию" class="popup__input popup__input-job">
-      </fieldset>
-      <button class="save-button">Сохранить</button>
-      <button class="popup__close-button"></button>
-    </form>
-  </div>
   <header class="header">
     <img src="./images/logo.svg" alt="Логотип проекта Mesto" class="header__logo">
   </header>
@@ -31,62 +18,74 @@
         <div class="profile__info">
           <div class="profile__name-section">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="edit-button"></button>
+            <button type="button" class="profile__edit-button"></button>
           </div>
           <h2 class="profile__job">Исследователь океана</h2>
         </div>
       </div>
-      <button class="add-button"></button>
+      <button type="button" class="profile__add-button"></button>
     </section>
-    <ul class="elements">
-      <li class="elements__item">
-        <img src="./images/karachaevsk.jpg" alt="Тебердинский храм в Карачаево-Черкессии" class="elements__image">
-        <div class="elements__card-profile">
-          <h3 class="elements__title">Карачаевск</h3>
-          <button class="like-button"></button>
-        </div>
-      </li>
-      <li class="elements__item">
-        <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
-        <div class="elements__card-profile">
-          <h3 class="elements__title">Гора Эльбрус</h3>
-          <button class="like-button"></button>
-        </div>
-      </li>
-      <li class="elements__item">
-        <img src="./images/kabardino-balkaria.jpg" alt="Мост через реку в горах" class="elements__image">
-        <div class="elements__card-profile">
-          <h3 class="elements__title">Кабардино-Балкария</h3>
-          <button class="like-button"></button>
-        </div>
-      </li>
-      <li class="elements__item">
-        <img src="./images/dombai.png" alt="Заснеженная гора на фоне леса" class="elements__image">
-        <div class="elements__card-profile">
-          <h3 class="elements__title">Домбай</h3>
-          <button class="like-button"></button>
-        </div>
-      </li>
-      <li class="elements__item">
-        <img src="./images/shadzhatmaz.jpg" alt="Горное плато с заснеженной вершине на горизонте"
-          class="elements__image">
-        <div class="elements__card-profile">
-          <h3 class="elements__title">Плато Шаджатмаз</h3>
-          <button class="like-button"></button>
-        </div>
-      </li>
-      <li class="elements__item">
-        <img src="./images/adygea.jpg" alt="Маленький деревянный дом на горном склоне" class="elements__image">
-        <div class="elements__card-profile">
-          <h3 class="elements__title">Адыгея</h3>
-          <button class="like-button"></button>
-        </div>
-      </li>
-    </ul>
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
-    </footer>
+    <section class="gallery">
+      <ul class="elements">
+        <li class="elements__item">
+          <img src="./images/karachaevsk.jpg" alt="Тебердинский храм в Карачаево-Черкессии" class="elements__image">
+          <div class="elements__card-profile">
+            <h3 class="elements__title">Карачаевск</h3>
+            <button class="elements__like-button"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
+          <div class="elements__card-profile">
+            <h3 class="elements__title">Гора Эльбрус</h3>
+            <button class="elements__like-button"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/kabardino-balkaria.jpg" alt="Мост через реку в горах" class="elements__image">
+          <div class="elements__card-profile">
+            <h3 class="elements__title">Кабардино-Балкария</h3>
+            <button class="elements__like-button"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/dombai.png" alt="Заснеженная гора на фоне леса" class="elements__image">
+          <div class="elements__card-profile">
+            <h3 class="elements__title">Домбай</h3>
+            <button class="elements__like-button"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/shadzhatmaz.jpg" alt="Горное плато с заснеженной вершине на горизонте"
+            class="elements__image">
+          <div class="elements__card-profile">
+            <h3 class="elements__title">Плато Шаджатмаз</h3>
+            <button class="elements__like-button"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/adygea.jpg" alt="Маленький деревянный дом на горном склоне" class="elements__image">
+          <div class="elements__card-profile">
+            <h3 class="elements__title">Адыгея</h3>
+            <button class="elements__like-button"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <div class="popup">
+      <form name="profile" class="popup__container">
+        <p class="popup__form-title">Редактировать профиль</p>
+        <input name="nam" type="text" required placeholder="Введите имя" class="popup__input popup__input_field_name">
+        <input name="job" type="text" required placeholder="Введите профессию"
+          class="popup__input popup__input_field_job">
+        <button class="popup__save-button">Сохранить</button>
+        <button type="reset" class="popup__close-button"></button>
+      </form>
+    </div>
   </main>
-  <script src="./index.js"></script>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+  </footer>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
