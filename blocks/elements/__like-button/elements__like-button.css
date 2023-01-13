@@ -1,13 +1,12 @@
 .elements__like-button {
   width: 22px;
   height: 19px;
-  background-color: transparent;
   border: none;
   outline: none;
   background-image: url(../../../images/like-icon_color_white.svg);
-  border: none;
   background-color: #fff;
   align-self: center;
+  padding: 0;
 }
 
 .elements__like-button:hover {

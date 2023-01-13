@@ -2,17 +2,16 @@
   width: 358px;
   min-height: 50px;
   margin: 0 auto;
-  background-color: transparent;
   border: none;
   outline: none;
   background-color: #000;
-  border: none;
   border-radius: 2px;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
   color: #fff;
+  padding: 0;
 }
 
 .popup__save-button:hover {
