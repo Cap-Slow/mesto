@@ -31,28 +31,28 @@
           <img src="./images/karachaevsk.jpg" alt="Тебердинский храм в Карачаево-Черкессии" class="elements__image">
           <div class="elements__card-profile">
             <h3 class="elements__title">Карачаевск</h3>
-            <button class="elements__like-button"></button>
+            <button type="button" class="elements__like-button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
           <div class="elements__card-profile">
             <h3 class="elements__title">Гора Эльбрус</h3>
-            <button class="elements__like-button"></button>
+            <button type="button" class="elements__like-button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="./images/kabardino-balkaria.jpg" alt="Мост через реку в горах" class="elements__image">
           <div class="elements__card-profile">
             <h3 class="elements__title">Кабардино-Балкария</h3>
-            <button class="elements__like-button"></button>
+            <button type="button" class="elements__like-button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="./images/dombai.png" alt="Заснеженная гора на фоне леса" class="elements__image">
           <div class="elements__card-profile">
             <h3 class="elements__title">Домбай</h3>
-            <button class="elements__like-button"></button>
+            <button type="button" class="elements__like-button"></button>
           </div>
         </li>
         <li class="elements__item">
@@ -60,32 +60,35 @@
             class="elements__image">
           <div class="elements__card-profile">
             <h3 class="elements__title">Плато Шаджатмаз</h3>
-            <button class="elements__like-button"></button>
+            <button type="button" class="elements__like-button"></button>
           </div>
         </li>
         <li class="elements__item">
           <img src="./images/adygea.jpg" alt="Маленький деревянный дом на горном склоне" class="elements__image">
           <div class="elements__card-profile">
             <h3 class="elements__title">Адыгея</h3>
-            <button class="elements__like-button"></button>
+            <button type="button" class="elements__like-button"></button>
           </div>
         </li>
       </ul>
     </section>
     <div class="popup">
-      <form name="profile" class="popup__container">
-        <p class="popup__form-title">Редактировать профиль</p>
-        <input name="nam" type="text" required placeholder="Введите имя" class="popup__input popup__input_field_name">
-        <input name="job" type="text" required placeholder="Введите профессию"
-          class="popup__input popup__input_field_job">
-        <button class="popup__save-button">Сохранить</button>
-        <button type="reset" class="popup__close-button"></button>
-      </form>
+      <div class="popup__container">
+        <form name="profile" class="popup__form">
+          <p class="popup__form-title">Редактировать профиль</p>
+          <input name="profileName" type="text" required placeholder="Введите имя"
+            class="popup__input popup__input_field_name">
+          <input name="profileJob" type="text" required placeholder="Введите профессию"
+            class="popup__input popup__input_field_job">
+          <button class="popup__save-button">Сохранить</button>
+          <button type="reset" class="popup__close-button"></button>
+        </form>
+      </div>
     </div>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
   </footer>
-  <script src="./scripts/index.js"></script>
+  <script src="./vendor/scripts/index.js"></script>
 </body>
 </html>
