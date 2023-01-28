@@ -27,49 +27,6 @@
     </section>
     <section class="gallery">
       <ul class="elements">
-        <li class="elements__item">
-          <img src="./images/karachaevsk.jpg" alt="Тебердинский храм в Карачаево-Черкессии" class="elements__image">
-          <div class="elements__card-profile">
-            <h3 class="elements__title">Карачаевск</h3>
-            <button type="button" class="elements__like-button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
-          <div class="elements__card-profile">
-            <h3 class="elements__title">Гора Эльбрус</h3>
-            <button type="button" class="elements__like-button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="./images/kabardino-balkaria.jpg" alt="Мост через реку в горах" class="elements__image">
-          <div class="elements__card-profile">
-            <h3 class="elements__title">Кабардино-Балкария</h3>
-            <button type="button" class="elements__like-button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="./images/dombai.png" alt="Заснеженная гора на фоне леса" class="elements__image">
-          <div class="elements__card-profile">
-            <h3 class="elements__title">Домбай</h3>
-            <button type="button" class="elements__like-button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="./images/shadzhatmaz.jpg" alt="Горное плато с заснеженной вершине на горизонте"
-            class="elements__image">
-          <div class="elements__card-profile">
-            <h3 class="elements__title">Плато Шаджатмаз</h3>
-            <button type="button" class="elements__like-button"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img src="./images/adygea.jpg" alt="Маленький деревянный дом на горном склоне" class="elements__image">
-          <div class="elements__card-profile">
-            <h3 class="elements__title">Адыгея</h3>
-            <button type="button" class="elements__like-button"></button>
-          </div>
-        </li>
       </ul>
     </section>
     <div class="popup popup-profile">
@@ -98,6 +55,15 @@
         </form>
       </div>
     </div>
+    <template id="card-template">
+      <li class="elements__item">
+        <img src="" alt="" class="elements__image">
+        <div class="elements__card-profile">
+          <h3 class="elements__title"></h3>
+          <button type="button" class="elements__like-button"></button>
+        </div>
+      </li>
+    </template>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
