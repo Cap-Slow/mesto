@@ -61,6 +61,8 @@ function renderCard() {
   const cardElement = cardTemplate
     .querySelector('.elements__item')
     .cloneNode(true);
+  cardElement.image = cardElement.querySelector('.elements__image');
+  cardElement.elementTitle = cardElement.querySelector('.elements__title');
   const likeButton = cardElement.querySelector('.elements__like-button');
   const deleteButton = cardElement.querySelector('.elements__delete-button');
   likeButton.addEventListener('click', toggleLike);
@@ -71,13 +73,37 @@ function renderCard() {
 function createCards(cards) {
   cards.forEach((item) => {
     const cardElement = renderCard();
-    const cardImage = cardElement.querySelector('.elements__image');
-    const cardTitle = cardElement.querySelector('.elements__title');
-    cardTitle.textContent = item.name;
-    cardImage.src = item.link;
-    cardImage.alt = item.alt;
+    cardElement.elementTitle.textContent = item.name;
+    cardElement.image.src = item.link;
+    cardElement.image.alt = item.alt;
     appendCard(cardsContainer, cardElement);
   });
+}
+
+function addCard() {
+  const cardElement = renderCard();
+  const cardNameInput = popupPlaceForm.querySelector(
+    '.popup__input_field_card-name'
+  );
+  const cardLinkInput = popupPlaceForm.querySelector(
+    '.popup__input_field_card-link'
+  );
+  cardElement.elementTitle.textContent = cardNameInput.value;
+  cardElement.image.src = cardLinkInput.value;
+  prependCard(cardsContainer, cardElement);
+}
+
+function handleProfileFormSubmit(e) {
+  e.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  closeProfileModal();
+}
+
+function handleCardFormSubmit(e) {
+  e.preventDefault();
+  addCard();
+  closePlaceModal();
 }
 
 function openProfileModal() {
@@ -92,28 +118,10 @@ function closeProfileModal() {
 
 function openPlaceModal() {
   openPopup(popupPlaceForm);
-  const cardNameInput = popupPlaceForm.querySelector(
-    '.popup__input_field_card-name'
-  );
-  const cardLinkInput = popupPlaceForm.querySelector(
-    '.popup__input_field_card-link'
-  );
 }
 
 function closePlaceModal() {
   closePopup(popupPlaceForm);
-}
-
-function handleProfileFormSubmit(e) {
-  e.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-  closeProfileModal();
-}
-
-function handleCardFormSubmit(e) {
-  e.preventDefault();
-  closePlaceModal();
 }
 
 function openPopup(element) {
@@ -134,4 +142,8 @@ function deleteCard(e) {
 
 function appendCard(container, element) {
   container.append(element);
+}
+
+function prependCard(container, element) {
+  container.prepend(element);
 }
