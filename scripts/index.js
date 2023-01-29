@@ -21,7 +21,7 @@ const cardTemplate = container.querySelector('#card-template').content;
 const initialCards = [
   {
     name: 'Карачаевск',
-    link: '../images/karachaevsk.jpg',
+    link: '/images/karachaevsk.jpg',
     alt: 'Тебердинский храм в Карачаево-Черкессии',
   },
   {
