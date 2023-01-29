@@ -3,15 +3,18 @@ const editButton = container.querySelector('.profile__edit-button');
 const addButton = container.querySelector('.profile__add-button');
 const popupProfileForm = container.querySelector('.popup-profile');
 const popupPlaceForm = container.querySelector('.popup-place');
+const cardImagePopup = container.querySelector('.popup-card');
+const cardImage = cardImagePopup.querySelector('.popup__image');
+const cardCaption = cardImagePopup.querySelector('.popup__caption');
+const placeForm = popupPlaceForm.querySelector('.popup__place-form');
 const cardsContainer = container.querySelector('.elements');
 const profileName = container.querySelector('.profile__name');
 const profileJob = container.querySelector('.profile__job');
+const cardCloseButton = container.querySelector('.popup__close-image-button');
 const profileCloseButton = popupProfileForm.querySelector(
   '.popup__close-button'
 );
-const placeCloseButton = popupPlaceForm.querySelector(
-  '.popup__close-place-button'
-);
+const placeCloseButton = placeForm.querySelector('.popup__close-place-button');
 const nameInput = popupProfileForm.querySelector('.popup__input_field_name');
 const jobInput = popupProfileForm.querySelector('.popup__input_field_job');
 const cardTemplate = container.querySelector('#card-template').content;
@@ -51,6 +54,7 @@ const initialCards = [
 editButton.addEventListener('click', openProfileModal);
 profileCloseButton.addEventListener('click', closeProfileModal);
 placeCloseButton.addEventListener('click', closePlaceModal);
+cardCloseButton.addEventListener('click', closeImageModal);
 addButton.addEventListener('click', openPlaceModal);
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handleCardFormSubmit);
@@ -58,15 +62,14 @@ popupPlaceForm.addEventListener('submit', handleCardFormSubmit);
 createCards(initialCards);
 
 function renderCard() {
-  const cardElement = cardTemplate
-    .querySelector('.elements__item')
-    .cloneNode(true);
+  const cardElement = cloneCard();
   cardElement.image = cardElement.querySelector('.elements__image');
   cardElement.elementTitle = cardElement.querySelector('.elements__title');
   const likeButton = cardElement.querySelector('.elements__like-button');
   const deleteButton = cardElement.querySelector('.elements__delete-button');
   likeButton.addEventListener('click', toggleLike);
   deleteButton.addEventListener('click', deleteCard);
+  cardElement.image.addEventListener('click', openImageModal);
   return cardElement;
 }
 
@@ -82,10 +85,10 @@ function createCards(cards) {
 
 function addCard() {
   const cardElement = renderCard();
-  const cardNameInput = popupPlaceForm.querySelector(
+  const cardNameInput = placeForm.querySelector(
     '.popup__input_field_card-name'
   );
-  const cardLinkInput = popupPlaceForm.querySelector(
+  const cardLinkInput = placeForm.querySelector(
     '.popup__input_field_card-link'
   );
   cardElement.elementTitle.textContent = cardNameInput.value;
@@ -103,6 +106,7 @@ function handleProfileFormSubmit(e) {
 function handleCardFormSubmit(e) {
   e.preventDefault();
   addCard();
+  resetForm(placeForm);
   closePlaceModal();
 }
 
@@ -112,12 +116,24 @@ function openProfileModal() {
   jobInput.value = profileJob.textContent;
 }
 
-function closeProfileModal() {
-  closePopup(popupProfileForm);
+function openImageModal(e) {
+  openPopup(cardImagePopup);
+  cardImage.src = e.target.src;
+  cardCaption.textContent = e.target
+    .closest('.elements__item')
+    .querySelector('.elements__title').textContent;
 }
 
 function openPlaceModal() {
   openPopup(popupPlaceForm);
+}
+
+function closeProfileModal() {
+  closePopup(popupProfileForm);
+}
+
+function closeImageModal() {
+  closePopup(cardImagePopup);
 }
 
 function closePlaceModal() {
@@ -146,4 +162,15 @@ function appendCard(container, element) {
 
 function prependCard(container, element) {
   container.prepend(element);
+}
+
+function resetForm(formElement) {
+  formElement.reset();
+}
+
+function cloneCard() {
+  const clonedCard = cardTemplate
+    .querySelector('.elements__item')
+    .cloneNode(true);
+  return clonedCard;
 }
