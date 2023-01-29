@@ -20,34 +20,28 @@ const jobInput = popupProfileForm.querySelector('.popup__input_field_job');
 const cardTemplate = container.querySelector('#card-template').content;
 const initialCards = [
   {
-    name: 'Карачаевск',
-    link: '/images/karachaevsk.jpg',
-    alt: 'Тебердинский храм в Карачаево-Черкессии',
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
   },
   {
-    name: 'Гора Эльбрус',
-    link: '../images/elbrus.jpg',
-    alt: 'Гора Эльбрус',
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
   },
   {
-    name: 'Кабардино-Балкария',
-    link: '../images/kabardino-balkaria.jpg',
-    alt: 'Мост через реку в горах Кабардино-Балкарии',
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
   },
   {
-    name: 'Домбай',
-    link: '../images/dombai.png',
-    alt: 'Заснеженная гора на фоне леса',
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
   },
   {
-    name: 'Шаджатмаз',
-    link: '../images/shadzhatmaz.jpg',
-    alt: 'Горное плато с заснеженной вершиной на горизонте',
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
   },
   {
-    name: 'Адыгея',
-    link: '../images/adygea.jpg',
-    alt: 'Маленький деревянный дом на горном склоне',
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
 ];
 
@@ -78,7 +72,7 @@ function createCards(cards) {
     const cardElement = renderCard();
     cardElement.elementTitle.textContent = item.name;
     cardElement.image.src = item.link;
-    cardElement.image.alt = item.alt;
+    cardElement.image.alt = item.name;
     appendCard(cardsContainer, cardElement);
   });
 }
