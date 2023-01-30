@@ -6,15 +6,11 @@ const popupPlaceForm = container.querySelector('.popup-place');
 const cardImagePopup = container.querySelector('.popup-card');
 const cardImage = cardImagePopup.querySelector('.popup__image');
 const cardCaption = cardImagePopup.querySelector('.popup__caption');
-const placeForm = popupPlaceForm.querySelector('.popup__place-form');
+const placeForm = document.forms['new place'];
 const cardsContainer = container.querySelector('.elements');
 const profileName = container.querySelector('.profile__name');
 const profileJob = container.querySelector('.profile__job');
-const cardCloseButton = container.querySelector('.popup__close-image-button');
-const profileCloseButton = popupProfileForm.querySelector(
-  '.popup__close-button'
-);
-const placeCloseButton = placeForm.querySelector('.popup__close-place-button');
+const closeButtons = document.querySelectorAll('.popup__close-button');
 const nameInput = popupProfileForm.querySelector('.popup__input_field_name');
 const jobInput = popupProfileForm.querySelector('.popup__input_field_job');
 const cardTemplate = container.querySelector('#card-template').content;
@@ -46,9 +42,10 @@ const initialCards = [
 ];
 
 editButton.addEventListener('click', openProfileModal);
-profileCloseButton.addEventListener('click', closeProfileModal);
-placeCloseButton.addEventListener('click', closePlaceModal);
-cardCloseButton.addEventListener('click', closeImageModal);
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
 addButton.addEventListener('click', openPlaceModal);
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handleCardFormSubmit);
