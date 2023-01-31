@@ -15,6 +15,8 @@ const closeButtons = document.querySelectorAll('.popup__close-button');
 const nameInput = popupProfileForm.querySelector('.popup__input_field_name');
 const jobInput = popupProfileForm.querySelector('.popup__input_field_job');
 const cardTemplate = container.querySelector('#card-template').content;
+const cardNameInput = placeForm.querySelector('.popup__input_field_card-name');
+const cardLinkInput = placeForm.querySelector('.popup__input_field_card-link');
 const initialCards = [
   {
     name: 'Архыз',
@@ -76,15 +78,9 @@ function createCards(cards) {
 }
 
 function addCard() {
-  const cardNameInput = placeForm.querySelector(
-    '.popup__input_field_card-name'
-  );
-  const cardLinkInput = placeForm.querySelector(
-    '.popup__input_field_card-link'
-  );
   const item = {
     name: cardNameInput.value,
-    link: cardLinkInput,
+    link: cardLinkInput.value,
   };
   const cardElement = renderCard(item);
   prependCard(cardsContainer, cardElement);
