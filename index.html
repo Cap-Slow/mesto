@@ -33,10 +33,12 @@
       <div class="popup__container">
         <form novalidate name="profile" class="popup__form">
           <p class="popup__form-title">Редактировать профиль</p>
-          <input name="profileName" type="text" required placeholder="Введите имя"
+          <input name="profile-name" type="text" required placeholder="Введите имя" minlength="2" maxlength="40"
             class="popup__input popup__input_field_name">
-          <input name="profileJob" type="text" required placeholder="Введите профессию"
+          <span class="profile-name-error popup__input_type_error"></span>
+          <input name="profile-job" type="text" required placeholder="Введите профессию" minlength="2" maxlength="200"
             class="popup__input popup__input_field_job">
+          <span class="profile-job-error popup__input_type_error"></span>
           <button class="popup__save-button popup__save-button_type_disabled">Сохранить</button>
           <button type="reset" class="popup__close-button popup__close-profile-button"></button>
         </form>
@@ -46,10 +48,12 @@
       <div class="popup__container">
         <form novalidate name="new place" class="popup__form popup__place-form">
           <p class="popup__form-title">Новое место</p>
-          <input name="cardName" type="text" required placeholder="Название"
+          <input name="card-name" type="text" required placeholder="Название" minlength="2" maxlength="30"
             class="popup__input popup__input_field_card-name">
-          <input name="cardLink" type="url" required placeholder="Ссылка на картинку"
+          <span class="card-name-error popup__input_type_error"></span>
+          <input name="card-link" type="url" required placeholder="Ссылка на картинку"
             class="popup__input popup__input_field_card-link">
+          <span class="card-link-error popup__input_type_error"></span>
           <button class="popup__save-button">Создать</button>
           <button type="reset" class="popup__close-button popup__close-place-button"></button>
         </form>
