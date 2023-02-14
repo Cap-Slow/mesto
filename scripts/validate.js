@@ -51,16 +51,16 @@ const handleFormInput = (
   const inputElement = evt.target;
   const errorElement = form.querySelector(`.${inputElement.name}-error`);
   checkInputValidity(inputElement, errorElement, inputErrorClass);
-  const disabledButtonState = hasInvalidInput(inputList);
-  toggleButtonState(buttonElement, inactiveButtonClass, disabledButtonState);
+  const isButtonDisabled = hasInvalidInput(inputList);
+  toggleButtonState(buttonElement, inactiveButtonClass, isButtonDisabled);
 };
 
 const toggleButtonState = (
   buttonElement,
   inactiveButtonClass,
-  disabledButton
+  isButtonDisabled
 ) => {
-  if (disabledButton) {
+  if (isButtonDisabled) {
     disableButton(buttonElement, inactiveButtonClass);
   } else {
     enableButton(buttonElement, inactiveButtonClass);
