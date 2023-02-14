@@ -49,9 +49,12 @@ closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
 addButton.addEventListener('click', () => openPopup(popupPlaceFormContainer));
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 placeForm.addEventListener('submit', handleCardFormSubmit);
+document.addEventListener('keydown', handleEscapeKeydown);
+document.addEventListener('click', closePopupByOverlayClick);
 
 createCards(initialCards);
 
@@ -146,4 +149,17 @@ function cloneCard() {
     .querySelector('.elements__item')
     .cloneNode(true);
   return clonedCard;
+}
+
+function handleEscapeKeydown(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+}
+
+function closePopupByOverlayClick(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
 }
