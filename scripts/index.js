@@ -53,7 +53,6 @@ closeButtons.forEach((button) => {
 addButton.addEventListener('click', () => openPopup(popupPlaceFormContainer));
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 placeForm.addEventListener('submit', handleCardFormSubmit);
-document.addEventListener('keydown', handleEscapeKeydown);
 document.addEventListener('click', closePopupByOverlayClick);
 
 createCards(initialCards);
@@ -118,10 +117,12 @@ function handleCardClick(item) {
 
 function openPopup(element) {
   element.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscapeKeydown);
 }
 
 function closePopup(element) {
   element.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscapeKeydown);
 }
 
 function toggleLike(e) {
