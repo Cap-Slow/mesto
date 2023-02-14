@@ -1,13 +1,3 @@
-const showInputError = (inputElement, errorElement, inputErrorClass) => {
-  inputElement.classList.add(inputErrorClass);
-  errorElement.textContent = inputElement.validationMessage;
-};
-
-const hideInputError = (inputElement, errorElement, inputErrorClass) => {
-  inputElement.classList.remove(inputErrorClass);
-  errorElement.textContent = '';
-};
-
 const enableValidation = (config) => {
   const form = Array.from(document.querySelectorAll(config.formSelector));
   form.forEach((item) => {
@@ -32,14 +22,6 @@ const enableValidation = (config) => {
   });
 };
 
-const checkInputValidity = (inputElement, errorElement, inputErrorClass) => {
-  if (inputElement.validity.valid) {
-    hideInputError(inputElement, errorElement, inputErrorClass);
-  } else {
-    showInputError(inputElement, errorElement, inputErrorClass);
-  }
-};
-
 const handleFormInput = (
   evt,
   form,
@@ -55,6 +37,14 @@ const handleFormInput = (
   toggleButtonState(buttonElement, inactiveButtonClass, isButtonDisabled);
 };
 
+const checkInputValidity = (inputElement, errorElement, inputErrorClass) => {
+  if (inputElement.validity.valid) {
+    hideInputError(inputElement, errorElement, inputErrorClass);
+  } else {
+    showInputError(inputElement, errorElement, inputErrorClass);
+  }
+};
+
 const toggleButtonState = (
   buttonElement,
   inactiveButtonClass,
@@ -67,8 +57,14 @@ const toggleButtonState = (
   }
 };
 
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => !inputElement.validity.valid);
+const showInputError = (inputElement, errorElement, inputErrorClass) => {
+  inputElement.classList.add(inputErrorClass);
+  errorElement.textContent = inputElement.validationMessage;
+};
+
+const hideInputError = (inputElement, errorElement, inputErrorClass) => {
+  inputElement.classList.remove(inputErrorClass);
+  errorElement.textContent = '';
 };
 
 const enableButton = (buttonElement, inactiveButtonClass) => {
@@ -81,11 +77,14 @@ const disableButton = (buttonElement, inactiveButtonClass) => {
   buttonElement.disabled = true;
 };
 
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => !inputElement.validity.valid);
+};
+
 enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_type_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible',
 });

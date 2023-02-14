@@ -1,4 +1,4 @@
-.popup__error_visible {
+.popup__error {
   display: inline;
   width: 358px;
   min-height: 30px;
@@ -9,16 +9,16 @@
   line-height: 15px;
 }
 
-.popup__error_visible:last-of-type {
+.popup__error:last-of-type {
   margin-bottom: 19px;
 }
 
 @media screen and (max-width: 767px) {
-  .popup__error_visible {
+  .popup__error {
     width: 238px;
   }
 
-  .popup__error_visible:last-of-type {
+  .popup__error:last-of-type {
     margin-bottom: 16px;
   }
 }
