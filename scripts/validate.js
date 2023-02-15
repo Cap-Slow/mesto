@@ -1,6 +1,6 @@
 const enableValidation = (config) => {
-  const form = Array.from(document.querySelectorAll(config.formSelector));
-  form.forEach((item) => {
+  const forms = Array.from(document.querySelectorAll(config.formSelector));
+  forms.forEach((item) => {
     item.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
