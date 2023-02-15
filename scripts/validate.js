@@ -6,6 +6,9 @@ const enableValidation = (config) => {
     });
     const buttonElement = item.querySelector(config.submitButtonSelector);
     disableButton(buttonElement, config.inactiveButtonClass);
+    item.addEventListener('reset', () => {
+      disableButton(buttonElement, config.inactiveButtonClass);
+    });
     const inputs = Array.from(item.querySelectorAll(config.inputSelector));
     inputs.forEach((inputElement) => {
       inputElement.addEventListener('input', (evt) => {
