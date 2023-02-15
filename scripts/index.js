@@ -1,4 +1,5 @@
 const container = document.querySelector('.page');
+const popupElements = container.querySelectorAll('.popup');
 const editButton = container.querySelector('.profile__edit-button');
 const addButton = container.querySelector('.profile__add-button');
 const popupProfileFormContainer = container.querySelector('.popup-profile');
@@ -50,10 +51,13 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
+popupElements.forEach((popup) => {
+  popup.addEventListener('click', closePopupByOverlayClick);
+});
+
 addButton.addEventListener('click', () => openPopup(popupPlaceFormContainer));
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 placeForm.addEventListener('submit', handleCardFormSubmit);
-document.addEventListener('click', closePopupByOverlayClick);
 
 createCards(initialCards);
 
