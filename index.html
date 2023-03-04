@@ -31,7 +31,7 @@
     </section>
     <div class="popup popup-profile">
       <div class="popup__container">
-        <form novalidate name="profile" class="popup__form">
+        <form novalidate name="profile" class="popup__form popup__profile-form">
           <p class="popup__form-title">Редактировать профиль</p>
           <input name="profile-name" type="text" required placeholder="Введите имя" minlength="2" maxlength="40"
             class="popup__input popup__input_field_name">
@@ -80,7 +80,8 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
   </footer>
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/validate.js"></script>
+  <script src="./scripts/Card.js" type="module"></script>
+  <script src="./scripts/index.js" type="module"></script>
+  <script src="./scripts/FormValidator.js" type="module"></script>
 </body>
 </html>
