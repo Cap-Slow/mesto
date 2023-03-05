@@ -47,6 +47,7 @@ const initialCards = [
   },
 ];
 const config = {
+  formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_type_disabled',
@@ -67,35 +68,37 @@ addButton.addEventListener('click', () => openPopup(popupPlaceFormContainer));
 popupForm.addEventListener('submit', handleProfileFormSubmit);
 placeForm.addEventListener('submit', handleCardFormSubmit);
 
-createCards(initialCards);
+initialCards.forEach((item) => {
+  const cardElement = getCard(item);
+  appendCard(cardsContainer, cardElement);
+});
 
-const profileValidation = new FormValidator(config, popupForm);
-profileValidation.enableValidation();
-
-const placeValidation = new FormValidator(config, placeForm);
-placeValidation.enableValidation();
-
-function createCards(cards) {
-  cards.forEach((item) => {
-    const card = new Card(
-      item.name,
-      item.link,
-      '#card-template',
-      handleCardClick
-    );
-    const cardElement = card.renderCard();
-    appendCard(cardsContainer, cardElement);
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    validator.enableValidation();
   });
-}
+};
 
-function addCard() {
+enableValidation(config);
+
+function getCard(item) {
   const card = new Card(
-    cardNameInput.value,
-    cardLinkInput.value,
+    item.name,
+    item.link,
     '#card-template',
     handleCardClick
   );
   const cardElement = card.renderCard();
+  return cardElement;
+}
+
+function addCard() {
+  const cardElement = getCard({
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  });
   prependCard(cardsContainer, cardElement);
 }
 
