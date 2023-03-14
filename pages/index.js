@@ -1,5 +1,6 @@
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
 
 const container = document.querySelector('.page');
 const popupElements = container.querySelectorAll('.popup');
@@ -13,6 +14,7 @@ const cardImagePopup = container.querySelector('.popup-card');
 const cardImage = cardImagePopup.querySelector('.popup__image');
 const cardCaption = cardImagePopup.querySelector('.popup__caption');
 const cardsContainer = container.querySelector('.elements');
+const cardsSelector = '.elements';
 const profileName = container.querySelector('.profile__name');
 const profileJob = container.querySelector('.profile__job');
 const closeButtons = document.querySelectorAll('.popup__close-button');
@@ -54,6 +56,18 @@ const config = {
   inputErrorClass: 'popup__input_type_error',
 };
 
+const cardList = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const cardElement = getCard(item);
+      cardList.addItem(cardElement);
+    },
+  },
+  cardsSelector
+);
+cardList.renderItems();
+
 editButton.addEventListener('click', openProfileModal);
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
@@ -68,10 +82,10 @@ addButton.addEventListener('click', () => openPopup(popupPlaceFormContainer));
 popupForm.addEventListener('submit', handleProfileFormSubmit);
 placeForm.addEventListener('submit', handleCardFormSubmit);
 
-initialCards.forEach((item) => {
-  const cardElement = getCard(item);
-  appendCard(cardsContainer, cardElement);
-});
+// initialCards.forEach((item) => {
+//   const cardElement = getCard(item);
+//   appendCard(cardsContainer, cardElement);
+// });
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
