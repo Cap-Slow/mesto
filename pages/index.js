@@ -1,6 +1,7 @@
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
+import Popup from '../components/Popup.js';
 
 const container = document.querySelector('.page');
 const popupElements = container.querySelectorAll('.popup');
@@ -68,15 +69,18 @@ const cardList = new Section(
 );
 cardList.renderItems();
 
-editButton.addEventListener('click', openProfileModal);
-closeButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
-});
+const profilePopup = new Popup('.popup-profile');
+profilePopup.setEventListeners();
 
-popupElements.forEach((popup) => {
-  popup.addEventListener('click', closePopupByOverlayClick);
-});
+editButton.addEventListener('click', () => profilePopup.open());
+// closeButtons.forEach((button) => {
+//   const popup = button.closest('.popup');
+//   button.addEventListener('click', () => closePopup(popup));
+// });
+
+// popupElements.forEach((popup) => {
+//   popup.addEventListener('click', closePopupByOverlayClick);
+// });
 
 addButton.addEventListener('click', () => openPopup(popupPlaceFormContainer));
 popupForm.addEventListener('submit', handleProfileFormSubmit);
@@ -172,8 +176,8 @@ function handleEscapeKeydown(evt) {
   }
 }
 
-function closePopupByOverlayClick(evt) {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(evt.target);
-  }
-}
+// function closePopupByOverlayClick(evt) {
+//   if (evt.target.classList.contains('popup_opened')) {
+//     closePopup(evt.target);
+//   }
+// }
