@@ -2,6 +2,7 @@ import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import Popup from '../components/Popup.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 
 const container = document.querySelector('.page');
 const popupElements = container.querySelectorAll('.popup');
@@ -71,6 +72,8 @@ cardList.renderItems();
 
 const profilePopup = new Popup('.popup-profile');
 profilePopup.setEventListeners();
+const imageCardPopup = new PopupWithImage('.popup-card');
+imageCardPopup.setEventListeners();
 
 editButton.addEventListener('click', () => profilePopup.open());
 // closeButtons.forEach((button) => {
@@ -141,10 +144,7 @@ function openProfileModal() {
 }
 
 function handleCardClick(item) {
-  openPopup(cardImagePopup);
-  cardImage.src = item.link;
-  cardImage.alt = item.name;
-  cardCaption.textContent = item.name;
+  imageCardPopup.open(item.name, item.link);
 }
 
 function openPopup(element) {
