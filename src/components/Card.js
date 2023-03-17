@@ -15,14 +15,16 @@ export default class Card {
     this._deleteButton = this._cardElement.querySelector(
       '.elements__delete-button'
     );
+    this._deleteCard = this._deleteCard.bind(this);
   }
 
   _toggleLike(e) {
     e.target.classList.toggle('elements__like-button_active');
   }
 
-  _deleteCard(e) {
-    e.target.closest('.elements__item').remove();
+  _deleteCard() {
+    this._cardElement.remove();
+    this._cardElement = null;
   }
 
   _setEventListeners() {
