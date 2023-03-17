@@ -1,9 +1,9 @@
-import Card from '../../components/Card.js';
-import FormValidator from '../../components/FormValidator.js';
-import Section from '../../components/Section.js';
-import PopupWithImage from '../../components/PicturePopup.js';
-import PopupWithForm from '../../components/PopupWithForm.js';
-import UserInfo from '../../components/UserInfo.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PicturePopup.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 import './index.css';
 
 import {
@@ -14,18 +14,18 @@ import {
   jobInput,
   initialCards,
   config,
-} from '../../utils/constants.js';
+} from '../utils/constants.js';
 
 const cardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const cardElement = new Card(
+      const cardElement = createCard(
         item.name,
         item.link,
         '#card-template',
         handleCardClick
-      ).renderCard();
+      );
       cardList.addItem(cardElement);
     },
   },
@@ -53,13 +53,12 @@ profilePopup.setEventListeners();
 const placePopup = new PopupWithForm({
   popupSelector: '.popup-place',
   handleFormSubmit: (formData) => {
-    const card = new Card(
+    const cardElement = createCard(
       formData['card-name'],
       formData['card-link'],
       '#card-template',
       handleCardClick
     );
-    const cardElement = card.renderCard();
     placePopup.close();
     cardList.addItem(cardElement);
   },
@@ -91,4 +90,10 @@ addButton.addEventListener('click', () => {
 
 function handleCardClick(item) {
   imagePopup.open(item.name, item.link);
+}
+
+function createCard(itemName, itemLink, cardTemplate, handleCardClick) {
+  const card = new Card(itemName, itemLink, cardTemplate, handleCardClick);
+  const cardElement = card.renderCard();
+  return cardElement;
 }
