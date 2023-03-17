@@ -92,8 +92,8 @@ function handleCardClick(item) {
   imagePopup.open(item.name, item.link);
 }
 
-function createCard(itemName, itemLink, cardTemplate, handleCardClick) {
-  const card = new Card(itemName, itemLink, cardTemplate, handleCardClick);
+function createCard(cardName, cardLink, cardTemplate, handleCardClick) {
+  const card = new Card(cardName, cardLink, cardTemplate, handleCardClick);
   const cardElement = card.renderCard();
   return cardElement;
 }
