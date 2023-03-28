@@ -65,7 +65,7 @@
         <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
-    <div class="popup popup__confirmation popup_opened ">
+    <div class="popup popup__confirmation">
       <div class="popup__container popup__container_small">
         <div class="popup__confirmation-container">
           <p class="popup__form-title popup__form-title_low-margin">Вы уверены?</p>
@@ -75,17 +75,16 @@
       </div>
     </div>
 
-
-
-
-
     <template id="card-template">
       <li class="elements__item">
         <img src="#" alt="" class="elements__image">
         <button type="button" class="elements__delete-button"></button>
         <div class="elements__card-profile">
           <h3 class="elements__title"></h3>
-          <button type="button" class="elements__like-button"></button>
+          <div class="elements__like-container">
+            <button type="button" class="elements__like-button"></button>
+            <p class="elements__like-counter">6</p>
+          </div>
         </div>
       </li>
     </template>
