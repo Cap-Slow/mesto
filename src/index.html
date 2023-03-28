@@ -66,8 +66,20 @@
         <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
+    <div class="popup popup-avatar popup_opened">
+      <div class="popup__container popup__container_size_medium">
+        <form novalidate name="avatar" class="popup__form popup__avatar-form">
+          <p class="popup__form-title">Обновить аватар</p>
+          <input name="avatar-link" type="url" required placeholder="Ссылка на аватар"
+            class="popup__input popup__input_field_avatar-link">
+          <span class="avatar-link-error popup__error"></span>
+          <button class="popup__save-button">Сохранить</button>
+          <button type="reset" class="popup__close-button popup__close-avatar-button"></button>
+        </form>
+      </div>
+    </div>
     <div class="popup popup__confirmation">
-      <div class="popup__container popup__container_small">
+      <div class="popup__container popup__container_size_small">
         <div class="popup__confirmation-container">
           <p class="popup__form-title popup__form-title_low-margin">Вы уверены?</p>
           <button class="popup__save-button popup__confirmation-button">Да</button>
