@@ -202,7 +202,6 @@ function handleCardClick(item) {
 }
 
 function handleDeleteClick(cardId, cardElement) {
-  console.log(cardId, cardElement);
   confirmationPopup.open(cardId, cardElement);
 }
 
