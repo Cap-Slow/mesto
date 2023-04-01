@@ -89,11 +89,13 @@ const profilePopup = new PopupWithForm({
     });
     api
       .setUserInfo(formData['profile-name'], formData['profile-job'])
+      .then(() => {
+        profilePopup.close();
+      })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        profilePopup.close();
         profilePopup.renderLoading(false, 'Сохранить');
       });
   },
@@ -113,7 +115,7 @@ const placePopup = new PopupWithForm({
           '#card-template',
           handleCardClick,
           myId,
-          res.likes.length,
+          res.likes,
           res.owner._id,
           res._id,
           handleDeleteClick,
@@ -121,11 +123,13 @@ const placePopup = new PopupWithForm({
         );
         cardList.addItem(cardElement);
       })
+      .then(() => {
+        placePopup.close();
+      })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        placePopup.close();
         placePopup.renderLoading(false, 'Создать');
       });
   },
@@ -141,11 +145,13 @@ const avatarPopup = new PopupWithForm({
       .then((res) => {
         profileInfo.setUserAvatar(res.avatar);
       })
+      .then(() => {
+        avatarPopup.close();
+      })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        avatarPopup.close();
         avatarPopup.renderLoading(false, 'Сохранить');
       });
   },
@@ -160,11 +166,11 @@ const confirmationPopup = new PopupWithConfirmation({
       .then(() => {
         cardElement.deleteCard();
       })
+      .then(() => {
+        confirmationPopup.close();
+      })
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => {
-        confirmationPopup.close();
       });
   },
 });
