@@ -13,8 +13,6 @@ import {
   addButton,
   changeAvatarButton,
   cardsSelector,
-  nameInput,
-  jobInput,
   config,
   mestoServerAddress,
   token,
@@ -183,8 +181,10 @@ enableValidation(config);
 
 editButton.addEventListener('click', () => {
   const userData = profileInfo.getUserInfo();
-  nameInput.value = userData.userName;
-  jobInput.value = userData.userInfo;
+  profilePopup.setInputValues({
+    'profile-name': userData.userName,
+    'profile-job': userData.userInfo,
+  });
   profilePopup.open();
 });
 
