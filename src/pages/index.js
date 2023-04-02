@@ -76,13 +76,13 @@ const profilePopup = new PopupWithForm({
   popupSelector: '.popup-profile',
   handleFormSubmit: (formData) => {
     profilePopup.renderLoading(true);
-    profileInfo.setUserInfo({
-      userName: formData['profile-name'],
-      userInfo: formData['profile-job'],
-    });
     api
       .setUserInfo(formData['profile-name'], formData['profile-job'])
       .then(() => {
+        profileInfo.setUserInfo({
+          userName: formData['profile-name'],
+          userInfo: formData['profile-job'],
+        });
         profilePopup.close();
       })
       .catch((err) => {
