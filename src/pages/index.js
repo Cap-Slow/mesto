@@ -211,10 +211,11 @@ function handleDeleteClick(cardId, cardElement) {
   confirmationPopup.open(cardId, cardElement);
 }
 
-function handleLikeClick(cardId, cardElement, isLiked) {
+function handleLikeClick(cardId, cardElement, isLiked, e) {
   api
     .toggleLike(cardId, isLiked)
     .then((res) => {
+      cardElement.toggleLike(e);
       cardElement.setLikes(res.likes.length);
     })
     .catch((err) => {

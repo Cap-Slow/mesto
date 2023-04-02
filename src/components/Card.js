@@ -41,7 +41,7 @@ export default class Card {
     this._likeCounter.textContent = likes;
   }
 
-  _toggleLike(e) {
+  toggleLike(e) {
     e.target.classList.toggle('elements__like-button_active');
   }
 
@@ -52,11 +52,10 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', (e) => {
-      this._toggleLike(e);
-      if (!e.target.classList.contains('elements__like-button_active')) {
-        this.handleLikeClick(this._cardId, this, true);
+      if (e.target.classList.contains('elements__like-button_active')) {
+        this.handleLikeClick(this._cardId, this, true, e);
       } else {
-        this.handleLikeClick(this._cardId, this, false);
+        this.handleLikeClick(this._cardId, this, false, e);
       }
     });
     this._deleteButton.addEventListener('click', () =>
