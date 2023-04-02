@@ -1,10 +1,7 @@
 const container = document.querySelector('.page');
 export const editButton = container.querySelector('.profile__edit-button');
 export const addButton = container.querySelector('.profile__add-button');
-const profileForm = document.forms.profile;
 export const cardsSelector = '.elements';
-export const nameInput = profileForm.querySelector('.popup__input_field_name');
-export const jobInput = profileForm.querySelector('.popup__input_field_job');
 export const mestoServerAddress =
   'https://mesto.nomoreparties.co/v1/cohort-63/';
 export const token = 'cb5146ac-a60f-490e-a276-8677c023f616';
