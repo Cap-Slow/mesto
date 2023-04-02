@@ -30,26 +30,19 @@ const api = new Api({
   },
 });
 
-api
-  .getUserInfo()
-  .then((data) => {
-    myId = data._id;
-    avatarUrl = data.avatar;
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
+    myId = userData._id;
+    avatarUrl = userData.avatar;
     profileInfo.setUserInfo({
-      userName: data.name,
-      userInfo: data.about,
+      userName: userData.name,
+      userInfo: userData.about,
     });
     profileInfo.setUserAvatar(avatarUrl);
+    cardList.renderItems(cards);
   })
-  .then(() => {
-    api
-      .getInitialCards()
-      .then((cards) => {
-        cardList.renderItems(cards);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  .catch((err) => {
+    console.log(err);
   });
 
 const cardList = new Section(
