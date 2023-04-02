@@ -87,7 +87,7 @@ const profilePopup = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        profilePopup.renderLoading(false, 'Сохранить');
+        profilePopup.renderLoading(false);
       });
   },
 });
@@ -121,7 +121,7 @@ const placePopup = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        placePopup.renderLoading(false, 'Создать');
+        placePopup.renderLoading(false);
       });
   },
 });
@@ -143,7 +143,7 @@ const avatarPopup = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        avatarPopup.renderLoading(false, 'Сохранить');
+        avatarPopup.renderLoading(false);
       });
   },
 });
